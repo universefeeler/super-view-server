@@ -1,0 +1,85 @@
+server:
+  is_update: false # stop send tx or system update
+  net: 1
+  http_server_addr: ":8820"
+  http_server_internal_addr: ":8819"
+  pay_server_address: "" # for send register tx
+  pay_private: ""
+  parser_url: "http://127.0.0.1:9118/v1" # super-database server
+  tx_tool_switch: true # open send register tx
+origins: # cross domain
+  - "superview.xyz"
+send_email_config:
+  from: "Elon@superview.xyz"
+  charset: "UTF-8"
+  subject: "Email Verification Code"
+chain:
+  ckb_url: "https://ckb-mainnet.rebase.network/rpc"
+  index_url: "https://ckb-mainnet.rebase.network/indexer_rpc"
+  current_block_number: 0 # 0-start from the latest block number, 4872287-start from  the earliest block number
+  confirm_num: 4
+  concurrency_num: 100
+db:
+  mysql:
+    addr: "****:3306"
+    user: "****"
+    password: "****"
+    db_name: "****"
+    max_open_conn: 100
+    max_idle_conn: 50
+  parser_mysql:
+    addr: "***:3306"
+    user: "***"
+    password: "***"
+    db_name: "***"
+    max_open_conn: 100
+    max_idle_conn: 50
+cache:
+  redis:
+    addr: "****:6379"
+    password: ""
+    db_num: 3
+nosql:
+  elasticsearch:
+    addr: "****:80"
+#super
+super:
+  account_min_length: 2
+  account_max_length: 42
+  open_account_min_length: 3
+  open_account_max_length: 4
+  open_account_hash_num: 1503238553
+  max_register_years: 20
+  premium: "0.1"
+apollo:
+  endpoint: "http://prod.apollo-config.cbs.sg2.api"
+super_lib:
+  super_args: "0xc126635ece567c71c50f7482c5db80603852c306"
+  thq_code_hash: "0x9e537bf5b8ec044ca3f53355e879f3fd8832217e4a9b41d9994cf0c547241a79"
+  super_contract_args: "0xc126635ece567c71c50f7482c5db80603852c306"
+  super_contract_code_hash: "0x00000000000000000000000000000000000000000000000000545950455f4944"
+  map_super_contract:
+    "config-cell-type": "0x3775c65aabe8b79980c4933dd2f4347fa5ef03611cef64328685618aa7535794"
+    "account-cell-type": "0x96dc231bbbee6aa474076468640f9e0ad27cf13b1343716a7ce04b116ea18ba8"
+    "balance-cell-type": "0xbdc8f42643ccad23e8df3d2e8dbdea9201812cd1b7f84c46e69b020529629822"
+    "super-lock": "0xda22fd296682488687a6035b5fc97c269b72d7de128034389bd03041b40309c0"
+    "apply-register-cell-type": "0xf18c3eab9fd28adbb793c38be9a59864989c1f739c22d2b6dc3f4284f047a69d"
+    "pre-account-cell-type": "0xf6574955079797010689a22cd172ce55b52d2c34d1e9bc6596e97babc2906f7e"
+    "proposal-cell-type": "0xd7b779b1b30f86a77db6b292c9492906f2437b7d88a8a5994e722619bb1d41c8"
+    "reverse-record-cell-type": "0x000f3e1a89d85d268ed6d36578d474ecf91d8809f4f696dd2e5b97fe67b84a2e"
+    "income-cell-type": "0x108fba6a9b9f2898b4cdf11383ba2a6ed3da951b458c48e5f5de0353bbca2d46"
+    "always-success": "0xca5016f232830f8a73e6827b5e1108aca68e7cf8baea4847ac40ef1da43c4c50"
+
+# SupportedChain
+supported_chains:
+  - chain_id: '1'
+    geth_url: 'https://mainnet.infura.io/v3/8d73020416d44ca8b444583fba3c6c87'
+    alchemy_url: 'https://eth-mainnet.alchemyapi.io/v2/x6C3fv1F2jy8AhhVdQSdJy2HDSRr_L6i'
+    weth: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+  - chain_id: '137'
+    geth_url: 'https://apis.ankr.com/1aacd4f680a54d8292e06211182838f7/b84e6f067384b05ad767137282aa881d/polygon/full/main'
+    alchemy_url: 'https://polygon-mainnet.g.alchemy.com/v2/uhxL0XWiyNFytdhJC5X_xv2K1j1FXZnN'
+    weth: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270'
+  - chain_id: '56'
+    geth_url: 'https://apis.ankr.com/2fdb4bf8fa1a4c888e6217fe8e206868/b84e6f067384b05ad767137282aa881d/binance/full/main'
+    weth: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
